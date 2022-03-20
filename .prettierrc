@@ -1,0 +1,5 @@
+overrides:
+  - files: '*.ts'
+    options:
+      printWidth: 140
+      singleQuote: true
