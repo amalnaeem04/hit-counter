@@ -3,9 +3,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import * as healthCheckRoutes from './util/server-health-check';
+import * as counterRoutes from './counter/route/counter.route';
 
 const app = express();
-const BASE_PATH = 'hit-counter-service';
+const BASE_PATH = '/counter-service';
 
 // @ts-ignore
 app.use(express.json());
@@ -41,11 +42,12 @@ app.use(
 );
 
 app.use(BASE_PATH, healthCheckRoutes.routes());
+app.use(BASE_PATH, counterRoutes.routes());
 
 const APP_PORT = process.env.APP_PORT ? +process.env.APP_PORT : 3000;
 
 app.listen(APP_PORT, () => {
-  console.log(`Node hit counter service app listening at http://localhost:${APP_PORT}`);
+  console.log(`Node hit counter app listening at http://localhost:${APP_PORT}`);
 });
 
 process.on('SIGINT', () => {
