@@ -47,7 +47,7 @@ app.use(BASE_PATH, counterRoutes.routes());
 const APP_PORT = process.env.APP_PORT ? +process.env.APP_PORT : 3000;
 
 app.listen(APP_PORT, () => {
-  console.log(`Node hit counter service app listening at http://localhost:${APP_PORT}`);
+  console.log(`Node hit counter app listening at http://localhost:${APP_PORT}`);
 });
 
 process.on('SIGINT', () => {
